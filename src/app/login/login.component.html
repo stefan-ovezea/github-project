@@ -1,0 +1,25 @@
+<div class="container login-box">
+
+  
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    <strong>Error</strong> {{ errorMessage }}
+  </div>
+  
+
+  <form [formGroup]="loginForm">
+    <legend>Login</legend>
+  
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="user.username" formControlName="usernameControl" class="form-control" placeholder="Insert username here" autofocus>
+    </div>
+  
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="user.password" formControlName="passwordControl" class="form-control" placeholder="Insert password here">
+    </div>  
+    <p>For testing purposes use: 'fakeuser' and 'fakepassword'</p>
+  
+    <button type="submit" (click)="login()" [disabled]="loginForm.invalid" class="btn btn-primary pull-right">Login</button>
+  </form>
+</div>

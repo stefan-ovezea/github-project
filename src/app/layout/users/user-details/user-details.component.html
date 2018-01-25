@@ -1,0 +1,18 @@
+<div *ngIf="user.id">
+  <h1>{{ user.login }}'s details</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-8">
+      <p><strong>Company:</strong> {{ user.company }}</p>
+      <p><strong>Location:</strong> {{ user.location }}</p>
+      <p><strong>Blog:</strong> <a [href]="user.blog" target="_blank">{{ user.blog }}</a></p>
+      <p><strong>Number of public repos:</strong> {{ user.public_repos }}</p>
+      <p><strong>Number of public gists:</strong> {{ user.public_gists }}</p>
+      <p><strong>Number of followers:</strong> {{ user.followers }}</p>
+      <p><strong>Number of following:</strong> {{ user.following }}</p>
+    </div>
+    <div class="col-md-2">
+      <img [src]="user.avatar_url" alt="">
+    </div>
+  </div>
+</div>

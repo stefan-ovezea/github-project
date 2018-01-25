@@ -1,0 +1,15 @@
+<h1>List of Github users</h1>
+<hr>
+
+<div class="row">
+  <div class="col-md-2 pull-right">
+    <input type="text" #searchUser class="form-control" placeholder="Search">
+  </div>
+</div>
+<br>
+<ul class="user-list">
+  <li (click)="selectUser(user)" class="user-item" *ngFor="let user of users | async">
+    <img [src]="user.avatar_url" alt=""> 
+    <span class="user-name">{{ user.login }}</span>
+  </li>
+</ul>
