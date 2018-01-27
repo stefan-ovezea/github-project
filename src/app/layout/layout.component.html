@@ -1,10 +1,13 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <a class="navbar-brand" href="#">Github Project</a>
+  <a class="navbar-brand" href="https://github.com" target="_blank">Github Project <i class="fa fa-github" aria-hidden="true"></i> </a>
   <ul class="nav navbar-nav">
     <li *ngFor="let route of routes">
       <a [routerLink]="route.url">{{ route.name }}</a>
     </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a (click)="logout()">Logout</a></li>
   </ul>
 </nav>
 

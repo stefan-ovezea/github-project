@@ -12,8 +12,11 @@ import { GithubUser } from '../../shared/github-user.model';
 })
 export class UsersComponent implements OnInit {
 
-  users: Observable<Array<GithubUser>>;
   @ViewChild('searchUser') searchUser: ElementRef;
+  users: Observable<Array<GithubUser>>;
+  searchedUsers: Array<GithubUser> = [];
+  noUsersFoundMessage = '';
+  loading = false;
 
   constructor(
     private usersService: UsersService,
@@ -26,8 +29,31 @@ export class UsersComponent implements OnInit {
     observableInputParameter.map((event: Event) => ((<HTMLInputElement>event.target).value))
                             .debounceTime(500)
                             .subscribe((value: string) => {
-                              console.log(value);
+                              if (value) {
+                                this.loading = true;
+                                this.searchForUser(value);
+                              } else {
+                                this.loading = false;
+                                this.searchedUsers = [];
+                              }
                             });
+  }
+
+  searchForUser(param: string) {
+    this.usersService.searchUser(param)
+        .subscribe((githubSearchResult: any) => {
+          const users = githubSearchResult.items;
+          this.searchedUsers = githubSearchResult.items;
+          if (this.searchedUsers.length > 0) {
+            this.noUsersFoundMessage = '';
+          } else {
+            this.noUsersFoundMessage = 'No users with this name found';
+          }
+          this.loading = false;
+        }, (error) => {
+          this.noUsersFoundMessage = '';
+          this.loading = false;
+        });
   }
 
   selectUser(user: GithubUser) {

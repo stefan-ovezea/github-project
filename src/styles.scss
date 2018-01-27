@@ -4,6 +4,10 @@ html {
     font-size: 10px;
 }
 
+*:focus {
+    outline: none;
+}
+
 .btn {
     border-radius: 0;
 }
@@ -18,4 +22,14 @@ html {
 
 .navbar {
     border-radius: 0;
+}
+
+.loading-text {
+    margin-top: 2rem;
+    padding-left: 5rem;
+    font-size: 2rem;
+}
+
+a {
+    cursor: pointer;
 }

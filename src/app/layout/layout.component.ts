@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -9,12 +10,20 @@ export class LayoutComponent implements OnInit {
 
   public routes = [
     { name: 'Home', url: '/' },
-    { name: 'Users', url: '/users' }
+    { name: 'Users', url: '/users' },
+    { name: 'Repos', url: '/repos' }
   ];
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.router.navigateByUrl('/login');
   }
 
 }

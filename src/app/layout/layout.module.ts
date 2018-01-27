@@ -1,29 +1,38 @@
-import { LayoutRoutingModule } from './layout-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
+import { LayoutRoutingModule } from './layout-routing.module';
+
 import { LayoutComponent } from './layout.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
-import { UsersService } from './users/users.service';
 import { UserDetailsComponent } from './users/user-details/user-details.component';
+import { ReposComponent } from './repos/repos.component';
 
+import { UsersService } from './users/users.service';
+import { RepoService } from './repos/repo.service';
+import { RepoDetailsComponent } from './repos/repo-details/repo-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   declarations: [
     LayoutComponent,
     HomeComponent,
     UsersComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ReposComponent,
+    RepoDetailsComponent
   ],
   providers: [
-    UsersService
+    UsersService,
+    RepoService
   ],
   exports: [
     LayoutComponent

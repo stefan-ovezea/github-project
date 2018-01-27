@@ -1,0 +1,19 @@
+<h1>Github repos</h1>
+<hr>
+
+<div class="col-md-12">
+  <input type="text" #searchRepo class="form-control align-fix" placeholder="Search">
+  
+  <p class="loading-text" *ngIf="loading">Searching ...</p>
+  
+  <div *ngIf="noReposFoundMessage" class="alert alert-danger align-fix">
+    {{ noReposFoundMessage }}
+  </div>
+    
+  <ul *ngIf="searchedRepos || searchedRepos.length > 0" class="repo-list">
+    <li (click)="selectRepo(repo)" class="repo-item" *ngFor="let repo of searchedRepos">
+      <span class="repo-name">{{ repo.name }}</span>      
+      <span> - Score: {{ repo.score }}</span>
+    </li>
+  </ul>
+</div>

@@ -5,10 +5,19 @@ $list-border: 1px solid rgb(163, 163, 163);
     font-style: italic;
 }
 
-.user-list {
+.align-fix {
+    width: 97.3%;
+    float: right;
+}
+
+.alert {
+    margin-top: 13rem;
+}
+
+.repo-list {
     padding-top: 5rem;
     list-style: none;
-    .user-item {
+    .repo-item {
         padding: 1.5rem;
         border-top: $list-border;
         &:last-child {
@@ -22,7 +31,7 @@ $list-border: 1px solid rgb(163, 163, 163);
             height: 5rem;
             margin-right: 2rem;
         }
-        .user-name {
+        .repo-name {
             font-weight: bold;
             font-size: 1.9rem;
         }

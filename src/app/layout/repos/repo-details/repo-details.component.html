@@ -1,0 +1,27 @@
+<h1>{{ repo.name }} (id: {{ repo.id }})</h1>
+<p *ngIf="repo.owner"><strong>Owner:</strong> {{ repo.owner.login }}</p>
+<hr>
+
+<div class="col-md-12">
+  
+  <div *ngIf="successMessage" class="alert alert-success">
+    <strong>Success!</strong> {{ successMessage }}
+  </div>
+  
+  <form [formGroup]="repoForm" novalidate>
+  
+    <div class="form-group">
+      <label>Description</label>
+      <input formControlName="descriptionControl" [(ngModel)]="repo.description" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Language</label>
+      <input formControlName="languageControl" [(ngModel)]="repo.language" type="text" class="form-control">
+    </div>
+
+  
+    <button type="submit" (click)="saveRepo()" class="btn btn-primary">Save</button>
+  </form>
+  
+</div>
