@@ -17,9 +17,6 @@
   </li>
 </ul>
 
-<ul *ngIf="searchedUsers || searchedUsers.length > 0" class="user-list">
-  <li (click)="selectUser(user)" class="user-item" *ngFor="let user of searchedUsers">
-    <img [src]="user.avatar_url" alt=""> 
-    <span class="user-name">{{ user.login }}</span>
-  </li>
-</ul>
+<app-simple-list *ngIf="searchedUsers || searchedUsers.length > 0" 
+                 [users]="searchedUsers"
+                 (userClicked)="selectUser($event)"></app-simple-list>

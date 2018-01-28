@@ -1,0 +1,25 @@
+$list-border: 1px solid rgb(163, 163, 163);
+
+.simple-list {
+    padding-top: 5rem;
+    list-style: none;
+    .simple-item {
+        padding: 1.5rem;
+        border-top: $list-border;
+        &:last-child {
+            border-bottom: $list-border;
+        }
+        &:hover {
+            background-color: rgb(212, 212, 212);
+            cursor: pointer;
+        }
+        img {
+            height: 5rem;
+            margin-right: 2rem;
+        }
+        .simple-name {
+            font-weight: bold;
+            font-size: 1.9rem;
+        }
+    }
+}

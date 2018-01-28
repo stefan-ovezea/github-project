@@ -1,0 +1,6 @@
+<ul class="simple-list">
+  <li (click)="selectUser(user)" class="simple-item" *ngFor="let user of users">
+    <img [src]="user.avatar_url" alt=""> 
+    <span class="simple-name">{{ user.login }}</span>
+  </li>
+</ul>
